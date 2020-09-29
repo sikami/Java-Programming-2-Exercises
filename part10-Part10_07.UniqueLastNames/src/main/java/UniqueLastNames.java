@@ -32,5 +32,12 @@ public class UniqueLastNames {
         }
 
         // Implement the printing of the unique last names in alphabetical order here:
+        String combined = persons.stream()
+                .map(s -> s.getLastName())
+                .distinct()
+                .sorted()
+                .reduce("", (previous, word) -> previous + word + "\n");
+        System.out.println("Unique last names in alphabetical order:");
+        System.out.println(combined);
     }
 }
